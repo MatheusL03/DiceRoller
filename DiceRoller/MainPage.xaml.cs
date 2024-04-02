@@ -2,19 +2,26 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
+            Sidespicker.SelectedIndex= 0;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        int valor = 0;
+        
+        private void RollBtn_Clicked(object sender, EventArgs e)
         {
-            ListView listView = new ListView();
-            listView.SetBinding(ItemsView.ItemsSourceProperty, "Number");
+
+            valor = Convert.ToInt32(Sidespicker.SelectedItem);
+
+            int valorSorteado = new Random().Next(1, (valor +1));
+
+            ResulLabel.Text = valorSorteado.ToString();
 
         }
     }
-
 }
+
+
